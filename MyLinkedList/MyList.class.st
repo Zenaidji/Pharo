@@ -1,4 +1,5 @@
 Class {
+"MyList Class represent a linked list of Cells"
 	#name : #MyList,
 	#superclass : #Object,
 	#instVars : [
