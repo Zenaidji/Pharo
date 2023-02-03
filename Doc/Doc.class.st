@@ -1,4 +1,6 @@
+"generate documentaion for a given class"
 Class {
+
 	#name : #Doc,
 	#superclass : #Object,
 	#category : #Doc
