@@ -1,5 +1,13 @@
+"MyList Class represent a linked list of Cells.
+ 	instVars: 
+		node: <Cell>  the Curent node in the LinkedList.
+		size: <Integer>  the List Size. 
+	
+
+
+"
 Class {
-"MyList Class represent a linked list of Cells"
+
 	#name : #MyList,
 	#superclass : #Object,
 	#instVars : [
@@ -42,6 +50,7 @@ MyList >> hasNext [
 
 { #category : #initialization }
 MyList >> initialize [
+"initialize the list size"
 	super initialize.
 	size := 0
 ]
