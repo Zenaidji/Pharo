@@ -9,14 +9,17 @@ Class {
 }
 
 { #category : #adding }
-MyList >> addFirst:value [
-size:=size+1.
-value newNode:node.
-node:=value. 
+MyList >> addFirst: value [
+" add value at the beginning of the list"
+	size := size + 1.
+	value newNode: node.
+	node := value
 ]
 
 { #category : #testing }
 MyList >> get: index [
+
+	"get the indexth element from the List or error if the element dasen't exsite or index greater than the list size"
 
 	| pos tmp |
 	pos := 0.
@@ -44,9 +47,11 @@ MyList >> initialize [
 
 { #category : #testing }
 MyList >> isEmpty [
-	 node ifNil:[^true].
-	 node ifNotNil:[^false]. 
-	
+
+	"return true if the List is empty false otherwise "
+
+	node ifNil: [ ^ true ].
+	node ifNotNil: [ ^ false ]
 ]
 
 { #category : #accessing }
@@ -56,25 +61,26 @@ MyList >> node [
 
 { #category : #removing }
 MyList >> remove [
-		|res|
+"remove the one element from the beginin of the list if the list is not empty and return the removed element otherwise an signal will be thrown"
+	| res |
 	node ifNil: [ ^ Error new signal: 'Empty List' ].
 	node ifNotNil: [ 
-		res:=node.
+		res := node.
 		node := node next.
 		size := size - 1.
-		
+
 		^ res ]
 ]
 
 { #category : #accessing }
 MyList >> removeAt: index [
-
+"remove the indexth element and return it  if the element exist otherwise a signal will be thrown "
 	| pos tmp res |
 	res := node.
 	pos := 0.
 	index - 1 >= size ifTrue: [ 
 		^ Error new signal: 'index out off BoundException' ].
-	[ index-1>=pos ] whileTrue: [ 
+	[ index - 1 >= pos ] whileTrue: [ 
 		pos := pos + 1.
 		node := node next ].
 	tmp := node next.
@@ -86,5 +92,8 @@ MyList >> removeAt: index [
 
 { #category : #accessing }
 MyList >> size [
-^size
+
+	"return the list size"
+
+	^ size
 ]
